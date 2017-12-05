@@ -32,8 +32,8 @@ public class MainFrame {
 
 	public MainFrame() {
 		initialize();
-		AddComponentesToFrame();
-		AddActionListeners();
+		addComponentesToFrame();
+		addActionListeners();
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class MainFrame {
 		btnExit.setBounds(300, 284, 117, 25);
 		
 	}
-	public void AddComponentesToFrame() {
+	public void addComponentesToFrame() {
 		frame.getContentPane().add(textField1);
 		frame.getContentPane().add(textField2);
 		frame.getContentPane().add(lblValue1);
@@ -81,22 +81,20 @@ public class MainFrame {
 		frame.getContentPane().add(btnExit);
 		
 	}
-	public void AddActionListeners() {
+	public void addActionListeners() {
 				
 		btnToRadians.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				double degrees = Double.parseDouble(textField1.getText());
-				conversor.setDegrees(degrees);
-				conversor.DegreesToRadians();
-				textField3.setText(String.valueOf(conversor.getResultDegreesToRadians()));
+				//conversor.degreesToRadians(degrees);
+				textField3.setText(String.valueOf(conversor.degreesToRadians(degrees)));
 			}
 		});
 		btnToDegrees.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				double radians = Double.parseDouble(textField2.getText());
-				conversor.setRadians(radians);
-				conversor.RadiansToDegrees();
-				textField3.setText(String.valueOf(conversor.getResultRadiansToDegrees()));
+				//conversor.radiansToDegrees();
+				textField3.setText(String.valueOf(conversor.radiansToDegrees(radians)));
 			}
 		});
 		btnClear.addActionListener(new ActionListener() {

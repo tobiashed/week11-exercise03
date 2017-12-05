@@ -12,37 +12,25 @@ public class ConversorDegreesRadianTest {
 	ConversorDegreesRadian c = new ConversorDegreesRadian();
 	Random random = new Random();
 	
-	@Test
-	public void testGetAndSetDegrees() {
-		c.setDegrees(7);
-		assertEquals(c.getDegrees(), 7, 0);
-		}
-	@Test
-	public void testGetAndSetRadians() {
-		c.setRadians(7);
-		assertEquals(c.getRadians(), 7, 0);
-		}
-	@Test
-	public void testGetAndSetResultDegreesToRadians() {
-		c.setResultDegreesToRadians(7);
-		assertEquals(c.getResultDegreesToRadians(), 7, 0);
-		}
-	@Test
-	public void testGetAndSetResultRadiansToDegrees() {
-		c.setResultRadiansToDegrees(7);
-		assertEquals(c.getResultRadiansToDegrees(), 7, 0);
-		}
+	public double degrees2Radians(double valueInDegrees) {
+		double radians = valueInDegrees * (Math.PI / 180);
+		return radians;
+	}
+	public double radians2Degrees(double valueInRadians) {
+		double degrees = valueInRadians * (180 / Math.PI);
+		return degrees;
+	}
+	
 	@Test
 	public void testDegreesToRadian() {
 		
 		for(int i = 0;i<10;i++) {
 			double degrees = Double.valueOf(random.nextDouble()*100);
-			double resultDegreesToRadians = Math.toRadians(degrees);
-			c.setDegrees(degrees);
-			c.DegreesToRadians();
+			//double resultDegreesToRadians = degrees2Radians(degrees);
+			//c.degreesToRadians(degrees);
 			
 			LOG.info("Testing the method with: "+ degrees);
-			assertEquals(c.getResultDegreesToRadians(), resultDegreesToRadians,0);
+			assertEquals(degrees2Radians(degrees),c.degreesToRadians(degrees),0.1);
 			
 		}
 		
@@ -52,12 +40,11 @@ public class ConversorDegreesRadianTest {
 		
 		for(int i = 0;i<10;i++) {
 			double radians = Double.valueOf(random.nextDouble()*100);
-			double resultRadiansToDegrees = Math.toDegrees(radians);
-			c.setRadians(radians);
-			c.RadiansToDegrees();
+			//double resultRadiansToDegrees = radians2Degrees(radians);
+			//c.radiansToDegrees(radians);
 			
 			LOG.info("Testing the method with: "+ radians);
-			assertEquals(c.getResultRadiansToDegrees(), resultRadiansToDegrees,0);
+			assertEquals(radians2Degrees(radians),c.radiansToDegrees(radians),0.1);
 			
 		}
 		
